@@ -1,0 +1,37 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.product > mat-card > div > a > img {
+  object-fit: contain;
+  height: 200px;
+  max-width: 100%;
+}
+.product > mat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 350px;
+  width: 300px;
+  margin: 20px;
+}
+.product > mat-card > button {
+  margin: 0 auto 50px;
+  width: 80%;
+}
+
+ul > li {
+  list-style: none;
+}
+
+mat-card > div > ul {
+  padding: 0 30px;
+}
+
+.order-button {
+  left: 0;
+  position: absolute;
+}

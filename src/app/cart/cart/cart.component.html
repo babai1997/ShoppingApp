@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="products">
+    <div class="product" *ngFor="let cart of cartData">
+      <mat-card>
+        <div>
+          <img [src]="cart.imagePath" alt="" />
+        </div>
+        <div class="product-details">
+          <div>
+            <ul>
+              <li>
+                <h4>{{ cart.name }}</h4>
+              </li>
+              <li>
+                <p>{{ cart.desc }}</p>
+              </li>
+              <li>
+                <p>
+                  PRICE <strong>₹{{ cart.price }}</strong>
+                </p>
+              </li>
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="removeToCart(cart.id)"
+              >
+                Remove to Cart
+              </button>
+            </ul>
+          </div>
+          <div class="quantity-group">
+            <button
+              (click)="
+                handleQuantity(
+                  'min',
+                  cart.limitedQuant,
+                  cart.productQuant,
+                  cart.productId
+                )
+              "
+            >
+              -
+            </button>
+            <input type="text" [value]="cart.productQuant" />
+            <button
+              (click)="
+                handleQuantity(
+                  'plus',
+                  cart.limitedQuant,
+                  cart.productQuant,
+                  cart.productId
+                )
+              "
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <!-- <div class="price-detail" *ngIf="isUserAuthenticated">
+    <mat-card>
+      <table>
+        <tr>
+          <th>Price Details</th>
+        </tr>
+        <tr>
+          <td>price</td>
+        </tr>
+        <tr>
+          <td>Discount</td>
+        </tr>
+        <tr>
+          <td>Delivery Charge</td>
+        </tr>
+        <tr>
+          <td>Total Amount</td>
+        </tr>
+      </table>
+    </mat-card>
+  </div> -->
+</div>

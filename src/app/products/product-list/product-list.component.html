@@ -1,0 +1,35 @@
+<div class="products">
+  <div class="product" *ngFor="let product of products">
+    <mat-card class="card">
+      <div>
+        <a><img [src]="product.imagePath" alt="" /></a>
+      </div>
+      <div>
+        <ul>
+          <li>
+            <h4>{{ product.name }}</h4>
+          </li>
+          <li>
+            <p>{{ product.desc }}</p>
+          </li>
+          <li>
+            <p>
+              PRICE <strong>₹{{ product.price }}</strong>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <button
+        *ngIf="!isAddToCart"
+        mat-raised-button
+        color="primary"
+        (click)="addToCart(product)"
+      >
+        Add to cart
+      </button>
+      <!-- <button mat-raised-button color="primary" (click)="addToCart(product)">
+        Go to cart
+      </button> -->
+    </mat-card>
+  </div>
+</div>

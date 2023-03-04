@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <a routerLink=""><span>Shopping App</span></a>
+  <ul>
+    <li><a *ngIf="!isUserAuthenticated" routerLink="create">Seller</a></li>
+    <li>
+      <a routerLink="cart"
+        >Cart<span *ngIf="isUserAuthenticated">({{ cartLength }})</span></a
+      >
+    </li>
+    <li><a routerLink="signup" *ngIf="!isUserAuthenticated">Signup</a></li>
+    <li><a *ngIf="!isUserAuthenticated" routerLink="login">Login</a></li>
+    <li *ngIf="isUserAuthenticated">
+      <a routerLink="" (click)="onLogout()">Logout</a>
+    </li>
+  </ul>
+</mat-toolbar>

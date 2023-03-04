@@ -1,0 +1,56 @@
+<mat-card>
+  <form [formGroup]="form" (submit)="onAddProduct()">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="" name="name" formControlName="name" />
+      <mat-error *ngIf="form.get('name').invalid"
+        >Please enter a product name.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Description </mat-label>
+      <input matInput type="" name="desc" formControlName="desc" />
+      <mat-error *ngIf="form.get('desc').invalid"
+        >Please describe the product.</mat-error
+      >
+    </mat-form-field>
+    <div>
+      <button mat-stroked-button type="button" (click)="filePicker.click()">
+        Pick Image
+      </button>
+      <input type="file" #filePicker (change)="onImagePicked($event)" />
+    </div>
+    <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview">
+      <img [src]="imagePreview" [alt]="form.value.title" />
+    </div>
+
+    <mat-form-field>
+      <mat-label> Quantity </mat-label>
+      <input matInput type="" name="quantity" formControlName="quantity" />
+      <mat-error *ngIf="form.get('quantity').invalid"
+        >Please add the quantity.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Price </mat-label>
+      <input matInput type="" name="price" formControlName="price" />
+      <mat-error *ngIf="form.get('price').invalid"
+        >Please add the price.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label> Category </mat-label>
+      <input matInput type="" name="category" formControlName="category" />
+      <mat-error *ngIf="form.get('category').invalid"
+        >Please add the category.</mat-error
+      >
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="primary" type="submit">
+        Add Product
+      </button>
+    </div>
+  </form>
+</mat-card>
